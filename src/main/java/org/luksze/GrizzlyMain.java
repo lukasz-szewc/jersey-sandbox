@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
-public class Main {
+public class GrizzlyMain {
     public static final String BASE_URI = "http://localhost:8080/myapp/";
 
     public static HttpServer startServer() {
