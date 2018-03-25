@@ -1,5 +1,6 @@
 package org.luksze;
 
+import com.sun.net.httpserver.HttpServer;
 import org.eclipse.jetty.server.Server;
 import org.junit.After;
 import org.junit.Before;
@@ -11,29 +12,26 @@ import javax.ws.rs.client.WebTarget;
 
 import static org.junit.Assert.assertEquals;
 
-public class JettyResourceTest {
+public class JdkResourceTest {
 
-    private Server server;
     private WebTarget target;
+    private HttpServer server;
 
     @Before
     public void setUp() throws Exception {
         // start the server
-        this.server = JettyMain.server();
+        server = JdkMain.server();
         // create the client
         Client c = ClientBuilder.newClient();
 
-        target = c.target(JettyMain.BASE_URI);
+        target = c.target(JdkMain.BASE_URI);
     }
 
     @After
     public void tearDown() throws Exception {
-        server.stop();
+        server.stop(0);
     }
 
-    /**
-     * Test to see that the message "Got it!" is sent in the response.
-     */
     @Test
     public void testGetIt() {
         String responseMsg = target.path("myresource").request().get(String.class);
