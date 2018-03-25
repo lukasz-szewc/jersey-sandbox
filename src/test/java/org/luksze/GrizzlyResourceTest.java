@@ -8,10 +8,13 @@ import org.glassfish.grizzly.http.server.HttpServer;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.bridge.SLF4JBridgeHandler;
+
 import static org.junit.Assert.assertEquals;
 
-public class MyResourceTest {
+public class GrizzlyResourceTest {
 
     private HttpServer server;
     private WebTarget target;
@@ -35,6 +38,12 @@ public class MyResourceTest {
     @After
     public void tearDown() throws Exception {
         server.shutdown();
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+        SLF4JBridgeHandler.removeHandlersForRootLogger();
+        SLF4JBridgeHandler.install();
     }
 
     /**
