@@ -39,4 +39,10 @@ class JettyResourceTest {
         String responseMsg = target.path("myresource").request().get(String.class);
         assertEquals("Got it!", responseMsg);
     }
+
+    @Test
+    void zoneIdGet() {
+        String responseMsg = target.path("zoned").request().get(String.class);
+        assertEquals("1970-01-01T01:00+01:00[Europe/Warsaw]", responseMsg);
+    }
 }
