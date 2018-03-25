@@ -3,6 +3,7 @@ package org.luksze;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,6 +18,9 @@ public class GrizzlyMain {
     }
 
     public static void main(String[] args) throws IOException {
+        SLF4JBridgeHandler.removeHandlersForRootLogger();
+        SLF4JBridgeHandler.install();
+
         long startMillis = System.currentTimeMillis();
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with WADL available at "
