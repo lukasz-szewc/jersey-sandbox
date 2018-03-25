@@ -118,8 +118,8 @@
                 <version>2.5.1</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -145,5 +145,6 @@
         <version.slf4j>1.7.6</version.slf4j>
         <jersey.version>2.26</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java-version>1.8</java-version>
     </properties>
 </project>
