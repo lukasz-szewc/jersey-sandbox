@@ -2,7 +2,6 @@ package org.luksze;
 
 import com.sun.net.httpserver.HttpServer;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
-import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,7 +24,8 @@ public class JdkMain {
     public static HttpServer server() {
         return JdkHttpServerFactory.createHttpServer(
                 URI.create(BASE_URI),
-                new ResourceConfig(MyResource.class));
+                new MyResourceConfig());
     }
+
 }
 

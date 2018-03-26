@@ -2,7 +2,6 @@ package org.luksze;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
-import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
 import java.io.IOException;
@@ -13,8 +12,7 @@ public class GrizzlyMain {
     public static final String BASE_URI = "http://localhost:8080/myapp/";
 
     public static HttpServer startServer() {
-        final ResourceConfig rc = new ResourceConfig().packages("org.luksze");
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), new MyResourceConfig());
     }
 
     public static void main(String[] args) throws IOException {
