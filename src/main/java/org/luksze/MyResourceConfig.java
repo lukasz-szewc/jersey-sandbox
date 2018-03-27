@@ -11,7 +11,7 @@ class MyResourceConfig extends ResourceConfig {
     public static final String MY_CUSTOM_TEXT = "My custom text";
 
     MyResourceConfig() {
-        register(MyResource.class);
+        register(new MyResource("Got it!"));
         register(new NotAcceptableExceptionExceptionMapper());
     }
 

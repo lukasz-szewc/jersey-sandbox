@@ -11,6 +11,12 @@ import javax.ws.rs.core.MediaType;
 @Path("myresource")
 public class MyResource {
 
+    private final String string;
+
+    public MyResource(String string) {
+        this.string = string;
+    }
+
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.
@@ -20,6 +26,6 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "Got it!";
+        return string;
     }
 }
