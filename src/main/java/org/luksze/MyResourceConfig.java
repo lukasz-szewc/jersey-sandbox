@@ -12,6 +12,7 @@ class MyResourceConfig extends ResourceConfig {
 
     MyResourceConfig() {
         register(new MyResource("Got it!"));
+        register(new MyResource.ListOfIntegers());
         register(new NotAcceptableExceptionExceptionMapper());
     }
 

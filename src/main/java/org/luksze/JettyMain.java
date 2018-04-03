@@ -16,13 +16,10 @@ public class JettyMain {
         SLF4JBridgeHandler.install();
 
         long startMillis = System.currentTimeMillis();
-//        URI baseUri = UriBuilder.fromUri("http://localhost/").port(9998).build();
-        long time = System.currentTimeMillis() - startMillis;
-        System.out.println("after resource config: " + time);
         Server server = server();
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
-        time = System.currentTimeMillis() - startMillis;
+        long time = System.currentTimeMillis() - startMillis;
         System.out.println("Start time: " + time);
         int read = System.in.read();
         server.stop();
